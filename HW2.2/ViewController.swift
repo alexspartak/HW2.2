@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         updateSliderValues()
 		blueLabelText.text = String(format: "%.2f", blueSlider.value)
     }
-    
+    let nik = 0
     private func updateSliderValues() {
 		let redSliderValue = CGFloat(redSlider.value)
 		let greenSliderValue = CGFloat(greenSlider.value)
