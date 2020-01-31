@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
@@ -44,9 +45,11 @@ class ViewController: UIViewController {
         greenSlider.maximumValue = 1
         greenSlider.value = 0
         
-        redLabelText.text = String(Int(redSlider.value))
+        redLabelText.text = String(format: "%.2f", redSlider.value)
         greenLabelText.text = String(format: "%.2f", greenSlider.value)
         blueLabelText.text = String(format: "%.2f", blueSlider.value)
+        
+        updateSliderValues()
     }
     
     @IBAction func redActionSlider() {
@@ -64,15 +67,23 @@ class ViewController: UIViewController {
         updateSliderValues()
 		blueLabelText.text = String(format: "%.2f", blueSlider.value)
     }
-    let nik = 0
+    
     private func updateSliderValues() {
+        
 		let redSliderValue = CGFloat(redSlider.value)
 		let greenSliderValue = CGFloat(greenSlider.value)
 		let blueSliderValue = CGFloat(blueSlider.value)
+        
 		let newColor = UIColor(red: redSliderValue,
 							   green: greenSliderValue,
 							   blue: blueSliderValue,
-							   alpha: 1.0)
+							   alpha: 1)
+        
 		colorView.backgroundColor = newColor
+        
     }
+}
+
+extension ViewController: UITextFieldDelegate {
+    
 }
