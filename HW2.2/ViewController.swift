@@ -23,26 +23,31 @@ class ViewController: UIViewController {
     @IBOutlet var redLabelText: UILabel!
     @IBOutlet var greenLabelText: UILabel!
     @IBOutlet var blueLabelText: UILabel!
+
+
+	let tapGesture = UITapGestureRecognizer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+		tapGesture.addTarget(self, action: #selector(resignResponder))
+		view.addGestureRecognizer(tapGesture)
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
         redSlider.minimumValue = 0
         redSlider.maximumValue = 1
-        redSlider.value = 0
+		redSlider.value = Float(redTextField.text ?? "0") ?? 0
         
         blueSlider.minimumValue = 0
         blueSlider.maximumValue = 1
-        blueSlider.value = 0
+        blueSlider.value = Float(blueTextField.text ?? "0") ?? 0
         
         greenSlider.minimumValue = 0
         greenSlider.maximumValue = 1
-        greenSlider.value = 0
+        greenSlider.value = Float(greenTextField.text ?? "0") ?? 0
         
         redLabelText.text = String(format: "%.2f", redSlider.value)
         greenLabelText.text = String(format: "%.2f", greenSlider.value)
@@ -82,8 +87,51 @@ class ViewController: UIViewController {
 		colorView.backgroundColor = newColor
         
     }
+
+	@objc private func resignResponder() {
+		self.view.endEditing(true)
+	}
 }
 
 extension ViewController: UITextFieldDelegate {
-    
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		if string.count == 0 {
+			if textField.text?.count == 3 {
+				textField.text = "0"
+				return false
+			}
+
+			return true
+		}
+		guard let number = Float(string) else { return false }
+
+		if textField.text?.count ?? 0 > 1 {
+			return true
+		} else {
+			textField.text = "0."
+		}
+
+		switch textField {
+		case redTextField:
+			redSlider.value = number
+		case greenTextField:
+			greenSlider.value = number
+		case blueTextField:
+			blueSlider.value = number
+		default:
+			return false
+		}
+
+		updateSliderValues()
+
+		return true
+	}
+
+	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+		if textField.text?.count == 0 {
+			textField.text = "0"
+		}
+
+		return true
+	}
 }
