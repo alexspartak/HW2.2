@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		FABFA1BB23E378B000C92DB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFA1BA23E378B000C92DB7 /* AppDelegate.swift */; };
 		FABFA1BD23E378B000C92DB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFA1BC23E378B000C92DB7 /* SceneDelegate.swift */; };
-		FABFA1BF23E378B000C92DB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFA1BE23E378B000C92DB7 /* ViewController.swift */; };
+		FABFA1BF23E378B000C92DB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFA1BE23E378B000C92DB7 /* SettingsViewController.swift */; };
 		FABFA1C223E378B000C92DB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABFA1C023E378B000C92DB7 /* Main.storyboard */; };
 		FABFA1C423E378B500C92DB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABFA1C323E378B500C92DB7 /* Assets.xcassets */; };
 		FABFA1C723E378B500C92DB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABFA1C523E378B500C92DB7 /* LaunchScreen.storyboard */; };
+		FAF15BE723F9CBC800BF3F73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF15BE623F9CBC800BF3F73 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FABFA1B723E378B000C92DB7 /* HW2.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW2.2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABFA1BA23E378B000C92DB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABFA1BC23E378B000C92DB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FABFA1BE23E378B000C92DB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FABFA1BE23E378B000C92DB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FABFA1C123E378B000C92DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FABFA1C323E378B500C92DB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FABFA1C623E378B500C92DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABFA1C823E378B600C92DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAF15BE623F9CBC800BF3F73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,9 @@
 			children = (
 				FABFA1BA23E378B000C92DB7 /* AppDelegate.swift */,
 				FABFA1BC23E378B000C92DB7 /* SceneDelegate.swift */,
-				FABFA1BE23E378B000C92DB7 /* ViewController.swift */,
+				FABFA1BE23E378B000C92DB7 /* SettingsViewController.swift */,
 				FABFA1C023E378B000C92DB7 /* Main.storyboard */,
+				FAF15BE623F9CBC800BF3F73 /* FirstViewController.swift */,
 				FABFA1C323E378B500C92DB7 /* Assets.xcassets */,
 				FABFA1C523E378B500C92DB7 /* LaunchScreen.storyboard */,
 				FABFA1C823E378B600C92DB7 /* Info.plist */,
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABFA1BF23E378B000C92DB7 /* ViewController.swift in Sources */,
+				FABFA1BF23E378B000C92DB7 /* SettingsViewController.swift in Sources */,
 				FABFA1BB23E378B000C92DB7 /* AppDelegate.swift in Sources */,
 				FABFA1BD23E378B000C92DB7 /* SceneDelegate.swift in Sources */,
+				FAF15BE723F9CBC800BF3F73 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

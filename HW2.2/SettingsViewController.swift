@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingsViewController.swift
 //  HW2.2
 //
 //  Created by Alex Tishchenko on 30.01.2020.
@@ -8,7 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol ColorProtocol: AnyObject {
+    func colorChanged(newColor color: UIColor)
+}
+
+
+class SettingsViewController: UIViewController {
+
+    weak var delegate: ColorProtocol?
     
     @IBOutlet var colorView: UIView!
     
@@ -23,16 +30,22 @@ class ViewController: UIViewController {
     @IBOutlet var redLabelText: UILabel!
     @IBOutlet var greenLabelText: UILabel!
     @IBOutlet var blueLabelText: UILabel!
+    
+    var colorEdit: UIColor!
 
+    
 
 	let tapGesture = UITapGestureRecognizer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
 		tapGesture.addTarget(self, action: #selector(resignResponder))
 		view.addGestureRecognizer(tapGesture)
+        
+        navigationItem.hidesBackButton = true
+        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
@@ -53,7 +66,9 @@ class ViewController: UIViewController {
         greenLabelText.text = String(format: "%.2f", greenSlider.value)
         blueLabelText.text = String(format: "%.2f", blueSlider.value)
         
+        
         updateSliderValues()
+        colorView.backgroundColor = colorEdit
     }
     
     
@@ -72,6 +87,14 @@ class ViewController: UIViewController {
         updateSliderValues()
 		blueLabelText.text = String(format: "%.2f", blueSlider.value)
     }
+    
+    @IBAction func saveAndClose() {
+        
+        self.delegate?.colorChanged(newColor: colorView.backgroundColor ?? UIColor())
+
+    }
+    
+    
     
     private func updateSliderValues() {
         
@@ -93,8 +116,10 @@ class ViewController: UIViewController {
 	}
 }
 
-extension ViewController: UITextFieldDelegate {
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+extension SettingsViewController: UITextFieldDelegate {
+    
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
 		if string.count == 0 {
 			if textField.text?.count == 3 {
 				textField.text = "0"
